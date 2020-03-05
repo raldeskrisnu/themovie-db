@@ -7,7 +7,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import io.realm.Realm
-import io.realm.RealmResults
 
 class MainActivityInteractor(
     private val interactorService: MainInteractorService,
@@ -71,9 +70,8 @@ class MainActivityInteractor(
         })
     }
 
-    override fun getMovieLocal(realm: Realm) : RealmResults<MovieDbRealm> {
+    override fun getMovieLocal(realm: Realm) {
         val results = realm.where(MovieDbRealm::class.java).findAll()
-
-        return results
+        interactorOutput.onSuccessgetLocalMovie(results)
     }
 }

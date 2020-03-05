@@ -1,6 +1,7 @@
 package com.rlds.kitabisa_movie_test.module.activity.mainactivity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,6 +16,7 @@ import com.rlds.kitabisa_movie_test.di.module.MainActivityModule
 import com.rlds.kitabisa_movie_test.model.Movie
 import com.rlds.kitabisa_movie_test.model.MovieDbRealm
 import io.realm.Realm
+import io.realm.RealmResults
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -101,6 +103,10 @@ class MainActivity : BaseActivity(), MainView {
     override fun showLoadingState() {
         layout_loading_state.visibility = View.VISIBLE
         uiView_recylerview_movie.visibility = View.GONE
+    }
+
+    override fun getMovieLocal(realmResults: RealmResults<MovieDbRealm>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun hideLoadingState() {
